@@ -1,14 +1,17 @@
+# imports
 import os
 import random
 import csv
 import urllib.request
 import zipfile
 
+# directories and URL for files download and transform
 ROOT_DIR = os.getcwd()
 EXTRACT_PATH = os.path.join(ROOT_DIR, 'data')
 OUTPUT_PATH = os.path.join(ROOT_DIR, 'output_data')
 URL_PATH = "https://archive.ics.uci.edu/static/public/53/iris.zip"
 
+# check if directories exist if not create
 os.makedirs(EXTRACT_PATH, exist_ok=True)
 os.makedirs(OUTPUT_PATH, exist_ok=True)
 
