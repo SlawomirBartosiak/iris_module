@@ -158,20 +158,20 @@ class DataProcessor:
         return X_train, X_val, X_test, y_train, y_val, y_test
 
     @staticmethod
-    def disp_label_counts(y):
+    def disp_label_cardinality(y):
         """
-        Display count of unique classes.
+        Display cardinality of unique classes.
 
         Parameters:
         y (list): A list containing class labels.
 
         Returns:
-        list: A list of tuples containing unique class labels and their respective frequencies.
+        list: A list of tuples containing unique class labels and their respective cardinality.
         """
 
         unique_labels = list(set(y))
-        print("\nKlasy i ich liczba w zbiorze danych: ")
-        [print((label, y.count(label))) for label in unique_labels]
+        print("\nKlasy i ich liczebności w zbiorze danych: ")
+        [print((label, cardinality)) for cardinality, label in enumerate(unique_labels)]
 
     @staticmethod
     def disp_selected_label_data(X, y, selected_label="Iris-setosa"):
@@ -226,7 +226,7 @@ def main():
                                                                                     train_size=0.7,
                                                                                     val_size=0.1,
                                                                                     test_size=0.2)
-    DataProcessor.disp_label_counts(y)  # display label counts
+    DataProcessor.disp_label_cardinality(y)  # display label counts
 
     # Display the selected label from the chosen dataset (this one is on test dataset)
     DataProcessor.disp_selected_label_data(X_test, y_test, selected_label="Iris-versicolor")
